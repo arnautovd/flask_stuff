@@ -11,6 +11,8 @@ def hello():
 def hello_world():
     return str(getSum(10,20))
 
-@app.route('/hello')
-def get_results(element="start"):
-    return render_template('index.html', element=element)
+@app.route('/hello/<string:data>')
+def get_results(data):
+    
+    data = mutateData(data)
+    return render_template('index.html', data=data)
