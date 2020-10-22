@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 from modules import *
 
@@ -9,3 +10,7 @@ def hello():
 @app.route('/get_sum')
 def hello_world():
     return str(getSum(10,20))
+
+@app.route('/hello')
+def get_results(element="start"):
+    return render_template('index.html', element=element)
