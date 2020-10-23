@@ -3,10 +3,13 @@
 
 <head>
     <title>Hello from Flask</title>
-    <link rel="stylesheet" href="/static/style.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
+</head>
 <body>
     <p>{{ data }}</p>
-    <p>{{ data }}</p>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 
