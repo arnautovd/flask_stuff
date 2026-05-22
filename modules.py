@@ -9,8 +9,11 @@ CENSORED_MESSAGE = 'CENSORED'
 
 def censor_check(data: str) -> str:
     """Check if data contains censored words and return appropriate message."""
-    if data in CENSORED_WORDS:
-        return CENSORED_MESSAGE
+    # Check for censored words as substrings (case-insensitive)
+    data_lower = data.lower()
+    for word in CENSORED_WORDS:
+        if word.lower() in data_lower:
+            return CENSORED_MESSAGE
     return format_message(data)
 
 
